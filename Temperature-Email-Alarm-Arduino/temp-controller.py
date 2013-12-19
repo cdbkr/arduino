@@ -100,7 +100,7 @@ if __name__ == "__main__":
         print "Connection with Arduino estabilished"
     except Exception, e:
             errorMsg = "Ops, I got an error %s" % str(e)
-            print "I cannot connect to Arduino."
+            print errorMsg
             sys.exit(0)
     if SEND_DIAGNOSTICS:
         threading.Timer(SEND_DIAGNOSTICS_TIME, printDiagnostics).start()
@@ -112,4 +112,5 @@ if __name__ == "__main__":
             checkTemperature(string)
         except Exception, e:
             errorMsg = "Cannot read data from Arduino. Error: %s" % str(e)
+            print errorMsg
         
